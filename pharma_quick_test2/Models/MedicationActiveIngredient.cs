@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace pharma_quick_test2.Models
 {
+    [Index("IngredientId", Name = "IX_MedicationActiveIngredients_IngredientID")]
     public partial class MedicationActiveIngredient
     {
         [Key]

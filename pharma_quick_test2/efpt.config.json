@@ -1,62 +1,62 @@
 ﻿{
-   "CodeGenerationMode": 2,
-   "ContextClassName": "pharma_Context",
-   "ContextNamespace": null,
-   "DefaultDacpacSchema": null,
-   "FilterSchemas": false,
-   "IncludeConnectionString": true,
-   "ModelNamespace": null,
-   "OutputContextPath": null,
-   "OutputPath": "Models",
-   "PreserveCasingWithRegex": true,
-   "ProjectRootNamespace": "pharma_quick_test2",
-   "Schemas": null,
-   "SelectedHandlebarsLanguage": 2,
-   "SelectedToBeGenerated": 0,
-   "T4TemplatePath": null,
-   "Tables": [
-      {
-         "Name": "[dbo].[ActiveIngredients]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[MedicationActiveIngredients]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[MedicationCategories]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[MedicationReplacements]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[Medications]",
-         "ObjectType": 0
-      }
-   ],
-   "UiHint": "ahmed\\sqlexpress.pharma_quick.dbo",
-   "UncountableWords": null,
-   "UseBoolPropertiesWithoutDefaultSql": false,
-   "UseDatabaseNames": false,
-   "UseDateOnlyTimeOnly": false,
-   "UseDbContextSplitting": false,
-   "UseDecimalDataAnnotationForSprocResult": true,
-   "UseFluentApiOnly": false,
-   "UseHandleBars": false,
-   "UseHierarchyId": false,
-   "UseInflector": true,
-   "UseLegacyPluralizer": false,
-   "UseManyToManyEntity": true,
-   "UseNoDefaultConstructor": false,
-   "UseNoNavigations": false,
-   "UseNoObjectFilter": false,
-   "UseNodaTime": false,
-   "UseNullableReferences": false,
-   "UsePrefixNavigationNaming": false,
-   "UseSchemaFolders": false,
-   "UseSchemaNamespaces": false,
-   "UseSpatial": false,
-   "UseT4": false
+  "CodeGenerationMode": 2,
+  "ContextClassName": "pharma_Context",
+  "ContextNamespace": null,
+  "DefaultDacpacSchema": null,
+  "FilterSchemas": false,
+  "IncludeConnectionString": false,
+  "ModelNamespace": null,
+  "OutputContextPath": null,
+  "OutputPath": "Models",
+  "PreserveCasingWithRegex": true,
+  "ProjectRootNamespace": "pharma_quick_test2",
+  "Schemas": null,
+  "SelectedHandlebarsLanguage": 2,
+  "SelectedToBeGenerated": 0,
+  "T4TemplatePath": null,
+  "Tables": [
+    {
+      "Name": "[dbo].[ActiveIngredients]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[MedicationActiveIngredients]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[MedicationCategories]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[MedicationReplacements]",
+      "ObjectType": 0
+    },
+    {
+      "Name": "[dbo].[Medications]",
+      "ObjectType": 0
+    }
+  ],
+  "UiHint": "ahmed\\sqlexpress.pharma_quick2.dbo",
+  "UncountableWords": null,
+  "UseBoolPropertiesWithoutDefaultSql": false,
+  "UseDatabaseNames": false,
+  "UseDateOnlyTimeOnly": false,
+  "UseDbContextSplitting": false,
+  "UseDecimalDataAnnotationForSprocResult": true,
+  "UseFluentApiOnly": false,
+  "UseHandleBars": false,
+  "UseHierarchyId": false,
+  "UseInflector": true,
+  "UseLegacyPluralizer": false,
+  "UseManyToManyEntity": true,
+  "UseNoDefaultConstructor": false,
+  "UseNoNavigations": false,
+  "UseNoObjectFilter": false,
+  "UseNodaTime": false,
+  "UseNullableReferences": false,
+  "UsePrefixNavigationNaming": false,
+  "UseSchemaFolders": false,
+  "UseSchemaNamespaces": false,
+  "UseSpatial": false,
+  "UseT4": false
 }

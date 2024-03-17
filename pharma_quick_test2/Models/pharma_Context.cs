@@ -24,11 +24,6 @@ namespace pharma_quick_test2.Models
         public virtual DbSet<MedicationCategory> MedicationCategories { get; set; }
         public virtual DbSet<MedicationReplacement> MedicationReplacements { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-           
-        }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<ActiveIngredient>(entity =>
