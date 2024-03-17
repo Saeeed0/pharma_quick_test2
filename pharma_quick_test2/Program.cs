@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using pharma_quick_test2.Models;
+
 namespace pharma_quick_test2
 {
     public class Program
@@ -9,9 +12,14 @@ namespace pharma_quick_test2
             // Add services to the container.
 
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+            
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+
+            var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+            builder.Services.AddDbContext<pharma_Context>(options =>
+                options.UseSqlServer(connectionString));
 
             var app = builder.Build();
 
