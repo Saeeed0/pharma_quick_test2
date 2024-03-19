@@ -11,6 +11,7 @@ namespace pharma_quick_test2.ViewModels
         public string Precautions { get; set; }
         public string SideEffects { get; set; }
         public string Category { get; set; }
+        public List<string> ActiveIngredients { get; set; }
         public List<string> Replacements { get; set; }
     }
 }

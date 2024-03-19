@@ -39,10 +39,44 @@ namespace pharma_quick_test2.Controllers
         }
 
 
+        #region GetMedicationByName_Without_ActiveIngredient
+        //[HttpGet("{Medicine}")]
+        //public ActionResult GetMedicationByName(string Medicine)
+        //{
+        //    var med = _Context.Medications.Where(e => e.MedicationName == Medicine).Include(e => e.Category).Include(e => e.MedicationReplacementMeds).ThenInclude(e => e.Replacement).FirstOrDefault();
+
+        //    if (med is null)
+        //        return NotFound();
+
+        //    var medvm = new MedicationVM()
+        //    {
+        //        MedicationId = med.MedicationId,
+        //        Category = med.Category.CategoryName,
+        //        MedicationName = med.MedicationName,
+        //        SideEffects = med.SideEffects,
+        //        Precautions = med.Precautions,
+        //        ContraindicationsForUse = med.ContraindicationsForUse,
+        //        UseOfMedications = med.UseOfMedications,
+        //    };
+        //    medvm.ActiveIngredients = med.MedicationActiveIngredients.Select(e => e.Ingredient.IngredientName).ToList();
+
+        //    medvm.Replacements = med.MedicationReplacementMeds.Select(e => e.Replacement.MedicationName).ToList();
+
+        //    return Ok(medvm);
+        //} 
+        #endregion
+
         [HttpGet("{Medicine}")]
         public ActionResult GetMedicationByName(string Medicine)
         {
-            var med = _Context.Medications.Where(e => e.MedicationName == Medicine).Include(e => e.Category).Include(e => e.MedicationReplacementMeds).ThenInclude(e => e.Replacement).FirstOrDefault();
+            var med = _Context.Medications
+                .Where(e => e.MedicationName == Medicine)
+                .Include(e => e.Category)
+                .Include(e => e.MedicationActiveIngredients)  
+                    .ThenInclude(e => e.Ingredient)           
+                .Include(e => e.MedicationReplacementMeds)
+                    .ThenInclude(e => e.Replacement)
+                .FirstOrDefault();
 
             if (med is null)
                 return NotFound();
@@ -58,11 +92,20 @@ namespace pharma_quick_test2.Controllers
                 UseOfMedications = med.UseOfMedications,
             };
 
-            medvm.Replacements = med.MedicationReplacementMeds.Select(e => e.Replacement.MedicationName).ToList();
+            medvm.ActiveIngredients = med.MedicationActiveIngredients
+                .Select(e => e.Ingredient.IngredientName)
+                .ToList();
+
+            medvm.Replacements = med.MedicationReplacementMeds
+                .Select(e => e.Replacement.MedicationName)
+                .ToList();
 
             return Ok(medvm);
         }
 
 
     }
+
+
+
 }
