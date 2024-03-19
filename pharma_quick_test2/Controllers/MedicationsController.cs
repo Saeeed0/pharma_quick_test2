@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using pharma_quick_test2.Models;
 using pharma_quick_test2.ViewModels;
+using System.Linq;
 
 namespace pharma_quick_test2.Controllers
 {
@@ -11,15 +12,17 @@ namespace pharma_quick_test2.Controllers
     public class MedicationsController : ControllerBase
     {
         private readonly pharma_Context _Context;
+
         public MedicationsController(pharma_Context context)
         {
             _Context = context;
         }
+
         // GET: MedicationController
         [HttpGet("GetAll")]
         public ActionResult GetMedications()
         {
-            var meds = _Context.Medications.Include(e=>e.Category).ToList();
+            var meds = _Context.Medications.Include(e => e.Category).ToList();
 
             var medsvm = meds.Select(e => new MedicationVM()
             {
@@ -29,13 +32,36 @@ namespace pharma_quick_test2.Controllers
                 SideEffects = e.SideEffects,
                 Precautions = e.Precautions,
                 ContraindicationsForUse = e.ContraindicationsForUse,
-                UseOfMedications = e.UseOfMedications
-            });
+                UseOfMedications = e.UseOfMedications,
+            }).ToList();
 
             return Ok(medsvm);
         }
 
 
+        [HttpGet("{Medicine}")]
+        public ActionResult GetMedicationByName(string Medicine)
+        {
+            var med = _Context.Medications.Where(e => e.MedicationName == Medicine).Include(e => e.Category).Include(e => e.MedicationReplacementMeds).ThenInclude(e => e.Replacement).FirstOrDefault();
+
+            if (med is null)
+                return NotFound();
+
+            var medvm = new MedicationVM()
+            {
+                MedicationId = med.MedicationId,
+                Category = med.Category.CategoryName,
+                MedicationName = med.MedicationName,
+                SideEffects = med.SideEffects,
+                Precautions = med.Precautions,
+                ContraindicationsForUse = med.ContraindicationsForUse,
+                UseOfMedications = med.UseOfMedications,
+            };
+
+            medvm.Replacements = med.MedicationReplacementMeds.Select(e => e.Replacement.MedicationName).ToList();
+
+            return Ok(medvm);
+        }
 
 
     }

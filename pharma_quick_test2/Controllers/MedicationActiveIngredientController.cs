@@ -33,5 +33,9 @@ namespace pharma_quick_test2.Controllers
 
             return Ok(medsAciveIngredientsVM);
         }
+
+
+
+
     }
 }

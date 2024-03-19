@@ -26,6 +26,7 @@ namespace pharma_quick_test2.Models
         public string ContraindicationsForUse { get; set; }
         public string Precautions { get; set; }
         public string SideEffects { get; set; }
+
         [Column("CategoryID")]
         public int? CategoryId { get; set; }
 
